@@ -1,0 +1,64 @@
+.eggplore-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
+  }
+  .eggplore-header .eggplore-header-left {
+    display: flex;
+    flex-direction: row;
+    width: 45%;
+    margin: 20px 0 10px 120px;
+  }
+  .eggplore-header .eggplore-header-left .header-left-image {
+    position: relative;
+  }
+  .eggplore-header-left .header-left-image .left-svg-one {
+    position: absolute;
+    left: 15px;
+    top: 25px;
+  }
+  .eggplore-header-left .header-left-title {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0 0 10px;
+  }
+  .eggplore-header-left .header-left-title h3 {
+    text-transform: uppercase;
+    color: #6979f8;
+    line-height: 30px;
+    display: inline-block;
+    margin: 0;
+  }
+  .eggplore-header-left .header-left-title .left-title-blog{
+      display: flex;
+      flex-direction: row;
+      margin-top: 5px;
+  }
+  .header-left-title .left-title-blog h2{
+      display: inline-block;
+      margin: 0;
+      line-height: 32px;
+  }
+  .header-left-title .left-title-blog .title-blog-image{
+      position: relative;
+      margin: 0 0 5px 10px;
+  }
+  .header-left-title .left-title-blog .title-blog-image .left-svg-two{
+      position: absolute;
+      top: 7px;
+      left: 8px;
+      color: #FFFFFF;
+  }
+  .eggplore-header .eggplore-header-right{
+      width: 45%;
+      position: relative;
+  }
+  .eggplore-header .eggplore-header-right h6{
+      display: inline-block;
+      margin: 0;
+      color: #D0C9D6;
+      position: absolute;
+      top: 55px;
+      right: 120px;
+  }

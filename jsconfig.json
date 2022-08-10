@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "jsx": "preserve",
     "module": "esnext",
     "baseUrl": "./",
     "moduleResolution": "node",
@@ -9,6 +10,9 @@
         "src/*"
       ]
     },
+    "vueCompilerOptions": {
+      "experimentalDisableTemplateSupport": true
+      },
     "lib": [
       "esnext",
       "dom",
