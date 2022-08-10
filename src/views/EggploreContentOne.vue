@@ -47,8 +47,8 @@
         </div>
         <div class="button-blog-three">
           <h5>Other buttons</h5>
-
-          <button class="svg-button">
+            <div class="wrapper-buttons">
+                <button class="svg-button">
             <svg
               width="24"
               height="24"
@@ -61,10 +61,15 @@
                 fill="white"
               />
             </svg>
-            <div class="other-left-btn">
-
-            </div>
+            
           </button>
+          <div class="other-left-btn">
+                <button class="circle-btn">
+                    <div class="circle-loader"></div>
+                </button>
+            </div>
+            </div>
+          
         </div>
       </div>
     </div>
@@ -181,7 +186,47 @@ export default {
   font-size: 0.85rem;
   color: #ffffff;
 }
-.blog-button-three .svg-button{
-    width: 25%;
+.button-blog-three .svg-button{
+    width: 12%;
+    height: 42px;
+    background: #6979f8;
+    margin-top: 30px;
+    border: none;
+    border-radius: 15px;
+}
+.button-blog-three .other-left-btn{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+@keyframes spin{
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+.button-blog-three .other-left-btn .circle-btn{
+    display: block;
+    width: 50%;
+    margin-top: 30px;
+    margin-left: 25px;
+    background: #6979f8;
+    justify-items: center;
+    height: 42px;
+    border: none;
+    border-radius: 5px;
+}
+.button-blog-three .wrapper-buttons{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.circle-btn .circle-loader{
+    border: 8px solid #6979f8;
+    border-radius: 50%;
+    border-top: 8px solid #FFFFFF;
+    width: 6px;
+    height: 6px;
+    animation: spin 2s linear infinite;
+    margin: auto;
+
 }
 </style>
