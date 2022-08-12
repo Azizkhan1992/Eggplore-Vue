@@ -3,18 +3,21 @@
     <eggplore-header/>
     <eggplore-content-one/>
     <eggplore-content-two/>
+    <eggplore-content-three/>
   </div>
 </template>
 <script>
 import EggploreHeader from '../views/EggploreHeader.vue'
 import EggploreContentOne from '@/views/EggploreContentOne.vue';
 import EggploreContentTwo from '@/views/EggploreContentTwo.vue';
+import EggploreContentThree from '@/views/EggploreContentThree.vue';
 export default {
   name: "eggplore-app",
   components:{
     EggploreHeader,
     EggploreContentOne,
-    EggploreContentTwo
+    EggploreContentTwo,
+    EggploreContentThree
   },
   data() {
     return {
@@ -30,7 +33,8 @@ body {
 }
 .eggplore-container {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   background: #FCFCFC;
