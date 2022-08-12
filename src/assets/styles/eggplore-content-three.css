@@ -1,0 +1,62 @@
+
+
+
+
+.search-content .search-bar h5 {
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 24px;
+  }
+  .search-content .search-bar .search-bar-content {
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+  }
+  .search-content .search-bar .search-bar-content .search-input {
+    width: 90%;
+    height: 42px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 7px 64px rgba(0, 0, 0, 0.07);
+    padding: 10px 15px 10px 40px;
+    box-sizing: border-box;
+    color: #d0c9d6;
+    font-size: 0.95rem;
+    line-height: 20px;
+  }
+  .search-content .search-bar .search-bar-content .search-input:focus {
+    outline: none;
+    border: 1px solid #ecebed;
+    color: #3f3356;
+  }
+  .search-content .search-bar .search-bar-content .search-svg-active {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+  .search-content .search-bar .search-bar-content .search-svg-deactive {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: #d0c9d6;
+  }
+  @keyframes Search{
+      0%{transform: scale(0);}
+      50%{transform: scale(0.5);}
+      100%{transform: scale(1);}
+  }
+  .search-content .search-bar .search-bar-content .delete-search-active{
+      position: absolute;
+      right: 35px;
+      top: 15px;
+      animation: Search 3s linear;
+      cursor: pointer;
+  }
+  .search-content .search-bar .search-bar-content .delete-search-deactive{
+      position: absolute;
+      right: 35px;
+      top: 15px;
+      height: 0;
+  }

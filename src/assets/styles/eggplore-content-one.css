@@ -1,0 +1,269 @@
+.content-one-container {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0 0 120px;
+  }
+  .content-one-container h2 {
+    text-transform: uppercase;
+    color: #6979f8;
+    line-height: 30px;
+    border-left: 5px solid #6979f8;
+    padding-left: 10px;
+    box-sizing: border-box;
+  }
+  .content-one-container .content-one-content {
+    width: 90%;
+  }
+  
+  .content-one-content .content-one-buttons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .content-one-content h3 {
+    text-transform: uppercase;
+    line-height: 30px;
+  }
+  .content-one-content .content-one-buttons .common {
+    width: 31%;
+    display: flex;
+    flex-direction: column;
+  }
+  .content-one-content .content-one-buttons .button-blog-three {
+    width: 31%;
+    display: flex;
+    flex-direction: column;
+  }
+  .content-one-content .content-one-buttons .common h5 {
+    line-height: 24px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    display: inline-block;
+    margin: 35px 0 0 0;
+  }
+  .content-one-content .content-one-buttons .button-blog-three h5 {
+    line-height: 24px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    display: inline-block;
+    margin: 35px 0 0 0;
+  }
+  .content-one-buttons .button-blog-one button {
+    width: 65%;
+    margin-top: 30px;
+    height: 42px;
+  }
+  .button-blog-one .blog-button-one {
+    background: #be52f2;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .button-blog-one .blog-button-one:hover{
+    color: #be52f2;
+    border: 2px solid #be52f2;
+    background: #ffffff;
+  }
+  .button-blog-one .blog-button-two {
+    color: #6979f8;
+    border: 2px solid #6979f8;
+    border-radius: 5px;
+    background: #ffffff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .button-blog-one .blog-button-two:hover{
+    color: #ffffff;
+    border: none;
+    background: #6979f8;
+  }
+  .button-blog-one .blog-button-three {
+    background: #6979f8;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  .button-blog-one .blog-button-three:hover{
+    background: #ffffff;
+    border: 2px solid #6979f8;
+    color: #6979f8;
+  }
+  .button-blog-one .blog-button-three:hover .svg-three{
+    color: #6979f8;
+  }
+  .button-blog-two button {
+    width: 35%;
+    margin-top: 30px;
+    height: 28px;
+  }
+  .button-blog-two .blog-button-four {
+    background: #6979f8;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+  .button-blog-two .blog-button-four:hover{
+    background: #ffffff;
+    color: #6979f8;
+    border: 1px solid #6979f8;
+  }
+  .button-blog-two .blog-button-five {
+    background: #ffffff;
+    border: 2px solid #6979f8;
+    border-radius: 5px;
+    color: #6979f8;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+  .button-blog-two .blog-button-five:hover{
+    background: #6979f8;
+    color: #ffffff;
+    border: none;
+  }
+  .button-blog-two .blog-button-six {
+    background: #be52f2;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  .button-blog-two .blog-button-six:hover{
+    background: #ffffff;
+    color: #be52f2;
+    border: 1px solid #be52f2;
+  }
+  .button-blog-two .blog-button-six:hover .svg-six{
+    color: #be52f2;
+  }
+  .button-blog-three .svg-button{
+      width: 12%;
+      height: 42px;
+      background: #6979f8;
+      margin-top: 30px;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+  }
+  .button-blog-three .svg-button:hover{
+    background: #ffffff;
+    border: 2px solid #6979f8;
+  }
+  .button-blog-three .svg-button .svg-seven{
+    color: #ffffff;
+  }
+  .button-blog-three .svg-button:hover .svg-seven{
+    color: #6979f8;
+  }
+  .button-blog-three .other-left-btn{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+  }
+  @keyframes spin{
+      0% {transform: rotate(0deg);}
+      100% {transform: rotate(360deg);}
+  }
+  .button-blog-three .other-left-btn .circle-btn{
+      display: block;
+      width: 50%;
+      margin-top: 30px;
+      margin-left: 25px;
+      background: #6979f8;
+      justify-items: center;
+      height: 42px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+  .button-blog-three .other-left-btn .circle-btn:hover{
+    background: #ffffff;
+    border: 2px solid #6979f8;
+  }
+  .button-blog-three .wrapper-buttons{
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+  }
+  .circle-btn .circle-loader{
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      border-top: 2px solid #6979f8;
+      width: 25px;
+      height: 25px;
+      animation: spin 2s linear infinite;
+      margin: auto;
+  }
+  .button-blog-three .other-left-btn .circle-btn:hover .circle-loader{
+    color: #6979f8;
+    border: 2px solid #6979f8;
+    border-top: 2px solid #ffffff;
+  }
+  .other-left-btn .dot-btn{
+    display: block;
+    width: 35%;
+    margin-top: 30px;
+    margin-left: 25px;
+    height: 42px;
+    background: #6979f8;
+    border: none;
+    border-radius: 5px;
+    justify-items: center;
+    cursor: pointer;
+  }
+  .other-left-btn .dot-btn:hover{
+    background: #ffffff;
+    border: 2px solid #6979f8;
+  }
+  .other-left-btn .dot-btn .dot-loader{
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    width: 24px;
+    height: 8px;
+    margin: auto;
+    justify-content: center;
+  }
+  .other-left-btn .dot-btn .dot-loader span{
+    height: 5px;
+    width: 10px;
+    border-radius: 100%;
+    background-color: #ffffff;
+    animation: loading 2s linear infinite;
+    margin: auto;
+  }
+  .other-left-btn .dot-btn:hover .dot-loader{
+    background: #ffffff;
+  }
+  .other-left-btn .dot-btn:hover .dot-loader span{
+    background: #6979f8;
+  }
+  @keyframes loading{
+    0%{transform: translateY(0);}
+    25%{transform: translateY(7px);}
+    50%{transform: translateY(-7px);}
+    100%{transform: translateY(0);}
+  }
+  
+  .dot-btn .dot-loader span:nth-child(1){
+    animation-delay: 0.2s;
+  }
+  .dot-btn .dot-loader span:nth-child(2){
+    animation-delay: 0.3s;
+  }
+  .dot-btn .dot-loader span:nth-child(3){
+    animation-delay: 0.4s;
+  }
+  .dot-btn .dot-loader span:nth-child(4){
+    animation-delay: 0.5s;
+  }
