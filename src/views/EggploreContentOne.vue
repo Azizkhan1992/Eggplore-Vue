@@ -220,13 +220,15 @@ export default {
     width: 100%;
 }
 .circle-btn .circle-loader{
-    border: 8px solid #6979f8;
+
+
+    /* border: 12px solid #6979f8;
     border-radius: 50%;
-    border-top: 8px solid #FFFFFF;
+    border-top: 12px solid #FFFFFF;
     width: 6px;
     height: 6px;
     animation: spin 2s linear infinite;
-    margin: auto;
+    margin: auto; */
 
 }
 </style>
