@@ -184,10 +184,17 @@ export default {
       this.isShowPassword = ! this.isShowPassword
     },
     inputMultiValue(e){
-      this.selected_multi_values.push(e)
+      if (this.selected_multi_values.includes(e)) {
+        this.selected_multi_values = this.selected_multi_values.filter(item => item !== e)
+      } else {
+        this.selected_multi_values.push(e)
+      }
+      
       if(this.selected_multi_values.length>0){
         this.isMultiInput = true
         this.default_multi_value = this.selected_multi_values
+      } else {
+        this.default_multi_value = this.selected_multi_values = []
       }
       // console.log(this.selected_multi_values)
     },

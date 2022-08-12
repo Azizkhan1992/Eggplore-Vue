@@ -84,7 +84,7 @@
           </svg>
           <div
             :class="input_one_found ? 'wrap-one-active' : 'wrap-one-deactive'"
-            v-for="(found, idx) in regions"
+            v-for="(found, idx) in region"
             :key="idx"
           >
             <span>{{ found }}</span>
@@ -93,7 +93,7 @@
       </div>
       <div class="direction-form">
         <h5>Direction Form</h5>
-        <div class="direction-container">
+        <div class="direction-container" ref="containterDiv">
           <div class="own-location"
           :class="isPathDirection ? 'own-location-active' : 'own-location-deactive'"
           >
@@ -203,19 +203,39 @@ export default {
       ],
     };
   },
+  mounted() {
+    
+  },
   methods: {
     changePath(){
-        this.isPathDirection = !this.isPathDirection
+        // this.isPathDirection = !this.isPathDirection
+
+        let parentNode = this.$refs.containterDiv;
+        let firstChildEl = parentNode.firstChild;
+        let lastChildEl = parentNode.lastChild;
+        lastChildEl.style.marginTop = 0;
+        lastChildEl.style.borderTop = 'none';
+
+        firstChildEl.style.marginTop = 15
+        firstChildEl.style.borderTop = '1px dashed #ecebed'
+        console.log(this.$refs)
+
+        parentNode.append(firstChildEl)
+        parentNode.prepend(lastChildEl)
     },
     findRegion(e) {
       let input_value = e.target.value;
-      this.regions.forEach((element) => {
-        // let search_reg = element.toLowerCase
-        let found_value = element.match(`${input_value}`);
-        this.region = found_value;
-        console.log(this.region);
+      this.region = this.regions.filter(item => {
+        item = item.toLowerCase();
+        return item.includes(input_value.toLowerCase())
       });
-      console.log(input_value);
+      // this.regions.forEach((element) => {
+      //   // let search_reg = element.toLowerCase
+      //   let found_value = element.match(`${input_value}`);
+      //   this.region = found_value;
+      //   console.log(this.region);
+      // });
+      console.log(this.region);
     },
     deleteSearchInput() {
       this.search_input = null;
