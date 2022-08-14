@@ -41,5 +41,9 @@ body {
   padding-bottom: 25px;
 }
 
+@font-face{
+  font-family: 'SF Pro Text';
+  src: url(@/assets/font/FontsFree-Net-SFProText-Regular.ttf);
+}
 
 </style>

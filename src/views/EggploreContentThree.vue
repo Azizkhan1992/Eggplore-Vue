@@ -95,7 +95,7 @@
         <eggplore-location/>
       </div>
       <div class="date-picker">
-        <eggplore-calendar/>
+        <eggplore-calendar v-model="date" />
       </div>
       <div class="text-box"></div>
     </div>
@@ -114,6 +114,7 @@ export default {
       search_input: null,
       input_one_found: null,
       region: [],
+      date: new Date(),
       regions: [
         "Andijon",
         "Buxoro",
@@ -155,6 +156,11 @@ export default {
       this.input_one_found = null;
     },
   },
+  watch: {
+    'date': function (val) {
+      console.log(val)
+    }
+  }
 };
 </script>
 <style>
