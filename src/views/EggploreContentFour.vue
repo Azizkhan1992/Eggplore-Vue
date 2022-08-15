@@ -4,7 +4,7 @@
         <div class="other-components-content">
             <hr>
             <div class="components-wrapper">
-                <eggplore-check-boxes/>
+                <eggplore-check-boxes :options="options" :value="checkboxValues" />
                 <eggplore-radio-button/>
                 <eggplore-selector/>
                 <eggplore-tags/>
@@ -19,6 +19,18 @@ import EggploreSelector from './eggplore-four/EggploreSelector.vue';
 import EggploreTags from './eggplore-four/EggploreTags.vue';
 export default {
     name: 'eggplore-content-four',
-    components:{EggploreCheckBoxes, EggploreRadioButton, EggploreSelector, EggploreTags}
+    components:{EggploreCheckBoxes, EggploreRadioButton, EggploreSelector, EggploreTags},
+    data() {
+        return {
+            options: [
+                { name: 'Uzbekistan', value: 'UZB' },
+                { name: 'Kazakhistan', value: 'KZ'},
+                { name: 'Gijduvon', value: 'Gij', disabled: true}
+            ],
+            checkboxValues: ['UZB']
+        }
+    },
+    methods: {
+    }
 }
 </script>

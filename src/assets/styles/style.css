@@ -1698,6 +1698,10 @@ body {
   width: 40px;
   height: 30px;
 }
+.checkboxes-container .checkbox-content input.checkbox-unchecked::after{
+  content: "-";
+  font-size: 0.75rem;
+}
 .checkboxes-container .checkbox-content input[type="checkbox"]:disabled{
   border: none;
   background: #f7f5f9;
