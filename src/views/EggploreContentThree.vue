@@ -92,24 +92,46 @@
         </div>
       </div>
       <div class="direction-form">
-        <eggplore-location/>
+        <eggplore-location />
       </div>
       <div class="date-picker">
-        <eggplore-calendar v-model="date" />
+        <div class="change-date-picker" @click="changeDatePicker">
+          <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="currentcolor"
+          xmlns="http://www.w3.org/2000/svg"
+          :class="isChangePicker ? 'change-picker-active' : 'change-picker-deactive'"
+        >
+          <path
+            d="M15 2C15.552 2 16 2.448 16 3V15C16 15.552 15.552 16 15 16H1C0.448 16 0 15.552 0 15V3C0 2.448 0.448 2 1 2H3V0H6V2H10V0H13V2H15ZM14 14V5H2V14H14ZM4 7H6V9H4V7ZM7 7H9V9H7V7Z"
+            fill="currentcolor"
+          />
+        </svg>
+        <h4 :class="isChangePicker ? 'change-title-active' : 'change-title-deactive'">Change Date Picker</h4>
+        </div>
+        <eggplore-calendar-two v-if="isChangePicker"/>
+
+        <eggplore-calendar-one v-else v-model="date" />
       </div>
-      <div class="text-box"></div>
+      <div class="text-box">
+        <eggplore-text-box/>
+      </div>
     </div>
   </div>
 </template>
 <script>
-import EggploreLocation from './eggplore-three/EggploreLocation.vue'
-import EggploreCalendar from './eggplore-three/EggploreCalendar.vue';
+import EggploreLocation from "./eggplore-three/EggploreLocation.vue";
+import EggploreCalendarOne from "./eggplore-three/EggploreCalendarOne.vue";
+import EggploreCalendarTwo from './eggplore-three/EggploreCalendarTwo.vue';
+import EggploreTextBox from "./eggplore-three/EggploreTextBox.vue";
 export default {
   name: "search-app",
-  components:{EggploreLocation, EggploreCalendar},
+  components: { EggploreLocation, EggploreCalendarOne, EggploreCalendarTwo, EggploreTextBox },
   data() {
     return {
-      
+      isChangePicker: false,
       own_destination: "Your location",
       search_input: null,
       input_one_found: null,
@@ -133,7 +155,9 @@ export default {
   },
   mounted() {},
   methods: {
-    
+    changeDatePicker(){
+      this.isChangePicker = ! this.isChangePicker
+    },
     findRegion(e) {
       let input_value = e.target.value;
       this.region = this.regions.filter((item) => {
@@ -148,7 +172,7 @@ export default {
       // });
       console.log(this.region);
     },
-    
+
     deleteSearchInput() {
       this.search_input = null;
     },
@@ -157,16 +181,13 @@ export default {
     },
   },
   watch: {
-    'date': function (val) {
-      console.log(val)
-    }
-  }
+    date: function (val) {
+      console.log(val);
+    },
+  },
 };
 </script>
 <style>
-.search-container .search-content .date-picker{
-  width: 24%;
-  margin-left: 20px;
-}
+
 
 </style>

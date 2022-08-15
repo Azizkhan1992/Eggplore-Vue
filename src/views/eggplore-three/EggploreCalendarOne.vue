@@ -1,8 +1,9 @@
 <template>
   <div class="calendar-container">
-    <h5>Date Picker</h5>
+    <h5>Date Picker One</h5>
     <div class="calendar-content">
       <div
+      
         @click="calendarActive"
         :class="
           isCalendarActive
@@ -10,6 +11,10 @@
             : 'calendar-visible-deactive'
         "
       >
+      
+        <span v-for="(now, idx) in now_date" :key="idx">{{now}}</span>
+
+      
         <svg
           width="16"
           height="16"
@@ -131,7 +136,7 @@ export default {
   },
   mounted() {
     this.getNowDate();
-    this.getMonthDays()
+    this.getMonthDays();
   },
   computed: {
     currentDate() {
@@ -193,12 +198,14 @@ export default {
     getNowDate() {
       // let now = new Date().toISOString().slice(0, 10);
       let now = new Date();
-      // let day = now.getDate()
+      // this.now_date = now
+      // console.log(now)
+      let day = now.getDate()
       let month = now.getMonth();
       let year = now.getFullYear();
       for (let i = 0; i < this.months.length; i++) {
         if (i === month) {
-          this.now_date.push(this.months[i], year);
+          this.now_date.push(day,this.months[i], year);
         }
       }
       // console.log(this.now_date);
@@ -225,7 +232,17 @@ export default {
     },
     addEventToDay(column) {
       column.addEventListener('click', (e) => {
-        column.classList.add('current-day')
+        column.classList.add('current-selected-day')
+        let user_selected_date = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), +e.target.innerText)
+        this.now_date = []
+        let user_day = user_selected_date.getDate()
+        let user_year = user_selected_date.getFullYear()
+        let user_month = user_selected_date.getMonth()
+        for (let i = 0; i < this.months.length; i++) {
+        if (i === user_month) {
+          this.now_date.push(user_day,this.months[i], user_year);
+        }
+      }
         this.$emit('input', new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), +e.target.innerText))
       })
     }
@@ -233,104 +250,5 @@ export default {
 };
 </script>
 <style>
-.calendar-content .calendar-hidden-deactive {
-  width: 100%;
-  height: 0;
-  overflow: hidden;
-}
-.calendar-content .calendar-hidden-active {
-  position: relative;
-  margin-top: 10px;
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  transform: scale(1);
-  transform-origin: 1px 5px;
-  transition: all 1s;
-  align-items: center;
-  justify-items: center;
-  background: #ffffff;
-  box-shadow: 0 7px 64px rgba(0, 0, 0, 0.07);
-  border-radius: 5px;
-}
-.calendar-content .calendar-hidden-active .calendar-hidden-header,
-.calendar-content .calendar-hidden-deactive .calendar-hidden-header {
-  width: 100%;
-  margin-top: 5px;
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  font-size: 0.95rem;
-  line-height: 20px;
-  justify-content: center;
-  align-items: center;
-}
-.calendar-hidden-header button {
-  width: 36px;
-  height: 36px;
-  background-color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.07);
-  cursor: pointer;
-}
-.calendar-hidden-header .left-button {
-  margin-right: 25px;
-}
-.calendar-hidden-header .right-button {
-  margin-left: 25px;
-}
-.calendar-hidden-active .calendar-hidden-days {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding: 5px 10px 5px 10px;
-  box-sizing: border-box;
-  margin-top: 10px;
-  justify-content: space-between;
-  border-bottom: 1px dashed #ecebed;
-}
-.calendar-hidden-active .calendar-hidden-days .calendar-days span {
-  font-size: 0.85rem;
-  line-height: 16px;
-  color: #d0c9d6;
-}
-.calendar-hidden-active .calendar-hidden-header .now-date {
-  display: inline-block;
-  margin-right: 5px;
-}
-
-.current-day {
-  color: #ffffff;
-  background-color: #bd7ae3;
-}
-.calendar-content .calendar-hidden-active .calendar-hidden-content{
-  display: flex;
-  width: 100%;
-  margin: auto;
-  text-align: center;
-  padding: 5px 5px 10px 10px;
-  box-sizing: border-box;
-}
-.calendar-hidden-content .hidden-content-items{
-  width: 100%;
-  margin: auto;
-}
-.calendar-hidden-active .calendar-hidden-header .now-date{
-  font-size: 1.05rem;
-  line-height: 20px;
-}
-.calendar-hidden-content .hidden-content-items thead tr .calendar-days{
-  color: #d0c9d6;
-  font-size: 0.95rem;
-  line-height: 16px;
-}
-.calendar-hidden-content .hidden-content-items tbody tr td{
-  width: 28px;
-  height: 28px;
-  border-radius: 18px;
-  cursor: pointer;
-}
 
 </style>
