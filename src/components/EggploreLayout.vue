@@ -5,6 +5,7 @@
     <eggplore-content-two/>
     <eggplore-content-three/>
     <eggplore-content-four/>
+    <eggplore-content-five/>
   </div>
 </template>
 <script>
@@ -13,6 +14,7 @@ import EggploreContentOne from '@/views/EggploreContentOne.vue';
 import EggploreContentTwo from '@/views/EggploreContentTwo.vue';
 import EggploreContentThree from '@/views/EggploreContentThree.vue';
 import EggploreContentFour from '@/views/EggploreContentFour.vue';
+import EggploreContentFive from '@/views/EggploreContentFive.vue';
 export default {
   name: "eggplore-app",
   components:{
@@ -20,7 +22,8 @@ export default {
     EggploreContentOne,
     EggploreContentTwo,
     EggploreContentThree,
-    EggploreContentFour
+    EggploreContentFour,
+    EggploreContentFive
   },
   data() {
     return {

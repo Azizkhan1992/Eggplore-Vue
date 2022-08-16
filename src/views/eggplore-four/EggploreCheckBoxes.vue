@@ -1,31 +1,91 @@
 <template>
     <div class="checkboxes-container">
         <h5>CheckBoxes</h5>
-        <div class="checkbox-content">
-            <input type="checkbox" v-model="sport" @change="checkHobbie" :class="sport ? 'sport-active' : 'sport-deactive'">
-            <input type="checkbox" v-model="travel" @change="checkHobbie" :class="travel ? 'travel-active' : 'travel-deactive'">
-            <input type="checkbox" disabled>
-            <input type="checkbox" :class="isChecked ? 'checkbox-checked' : 'checkbox-unchecked'">
+        <div class="checkbox-content" ref="container">
+            <input type="checkbox" v-model="sport" v-for="(option, idx) in inputOptions" :key="idx" :value="option.value" :disabled="option.disabled" @change="tickCheckbox($event, options.value)" />
+            <input type="checkbox" ref="resultCheckbox">
         </div>
     </div>
 </template>
 <script>
 export default {
     name: 'eggplore-checkboxes',
-    data(){
-        return{
-            sport: false,
-            travel: false,
-            isChecked: false
+    props: {
+        options: {
+            type: Array,
+            validator: function (val) {
+                if (val.length === 0) {
+                    return true;
+                }
+
+                return val.find(item => typeof item == 'object')
+            },
+            default: () => []
+        },
+        value: {
+            type: Array,
+            default: () => []
         }
     },
-    methods:{
-        checkHobbie(){
-            if(this.sport ==true && this.travel == true){
-                this.isChecked = true
-            }else if(this.sport == true && this){
-                this.isChecked = false
+
+    data(){
+        return{
+            sport: []
+        }
+    },
+    computed: {
+        inputOptions() {
+            const options = JSON.parse(JSON.stringify(this.options));
+
+            return options.map(item => {
+                if (!item.disabled) {
+                    item['disabled'] = false;
+                }
+                
+                return item;
+            })
+        }
+    },
+    mounted() {
+        this.init();
+    },
+    methods: {
+        init() {
+            if (this.value.length > 0) {
+                this.sport = this.value;
+                const container = this.$refs.container;
+                // console.log(container.childNodes)
+
+                container.childNodes.forEach(el => {
+                    // console.log(el.value, this.sport)
+                    if (this.sport.includes(el.value)) {
+                        el.classList.add('sport-active')
+                    }
+                })
+
             }
+        },
+        tickCheckbox(e) {
+            e.target.classList.toggle('sport-active')
+        }
+    },
+    watch: {
+        'sport': function (val) {
+            const optionsCount = this.options.filter(item => !item.disabled).length;
+            const inputCount = val.length;
+            let resultcheck = this.$refs.resultCheckbox
+
+            if (inputCount === 0) {
+                resultcheck.classList.remove('checkbox-checked')
+                resultcheck.classList.remove('checkbox-unchecked')
+            } else if (inputCount < optionsCount) {
+                resultcheck.classList.add('checkbox-unchecked')
+                resultcheck.classList.remove('checkbox-checked')
+            } else {
+                resultcheck.classList.add('checkbox-checked')
+                resultcheck.classList.remove('checkbox-unchecked')
+            }
+            this.$emit('change', val)
         }
     }
 }
