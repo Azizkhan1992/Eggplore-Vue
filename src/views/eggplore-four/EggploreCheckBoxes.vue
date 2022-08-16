@@ -23,7 +23,7 @@ export default {
         checkHobbie(){
             if(this.sport ==true && this.travel == true){
                 this.isChecked = true
-            }else{
+            }else if(this.sport == true && this){
                 this.isChecked = false
             }
         }
