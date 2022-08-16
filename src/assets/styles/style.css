@@ -2130,14 +2130,7 @@ body {
   font-size: 1rem;
   line-height: 24px;
 }
-/* .eggplore-tabbar-container .tabbar-content{
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 48px;
-  background: #ffffff;
-  box-shadow: inset 0 -1px 0px rgba(208, 201, 214, 0.4);
-} */
+
 .eggplore-tabbar-container .tabbar-content .tabbar{
   display: flex;
   flex-direction: row;
@@ -2159,4 +2152,20 @@ body {
   display: flex;
   align-items: center;
   justify-items: center;
+  color: #d0c9d6;
+}
+.eggplore-tabbar-container .tabbar-content .tabbar div{
+  position: relative;
+}
+.eggplore-tabbar-container .tabbar-content .tabbar div .default-active{
+  color: #1a051d;
+  font-weight: 600;
+  transition: all 1s linear;
+}
+.eggplore-tabbar-container .tabbar-content .tabbar div svg{
+  color: #6979f8;
+  position: absolute;
+  left: 10px;
+  bottom: 5px;
+  transition: all 1s linear;
 }
