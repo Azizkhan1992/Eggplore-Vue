@@ -11,6 +11,8 @@
     </div>
 </template>
 <script>
+
+
 export default {
     name: 'second-checkbox',
     data(){
@@ -59,19 +61,22 @@ export default {
                 if(check_inp_elem && this.selected_provinces == this.provinces_box){
                     this.setAllClass(inp_elem)
                 }
-                
                 else{
                     this.deleteAllClass(inp_elem)
                 }
                 
             }
-            else if(this.selected_provinces ==! this.provinces_box){
-                    this.setAllItemClass(inp_elem)
-                }
+            
             else{
                 let selected = this.provinces_box.find(elem => elem.value == k)
-                this.selected_provinces.push(selected)
-                console.log(k)
+                if(this.selected_provinces.length>0){
+                    this.selected_provinces.forEach(elem => {
+                        console.log(elem)
+                    })
+                }else{
+                    this.selected_provinces.push(selected)
+                    console.log(this.selected_provinces)
+                }
             }
                 // console.log(inp_elem)
         },
@@ -86,10 +91,10 @@ export default {
             })
         },
         setAllItemClass(e){
+            console.log(e)
             e.forEach(item =>{
-                
-                if(item){
-                    console.log(item)
+                if(item.value == 'All'){
+                    item.classList.remove('all-checkbox-active')
                     item.classList.add('all-item-active')
                 }
             })
