@@ -3,10 +3,11 @@
         <h5>Checkbox Second</h5>
         <div class="second-box-content">
             <div class="second-box-wrapper" v-for="(province, idx) in provinces_box" :key="idx" ref="boxWrapper">
-                <input type="checkbox" :value="province.value" :disabled="province.disabled" @change="setEvent(province.value)" ref="checkProvince">
+                <input type="checkbox" v-model="selected_provinces" :value="province" :disabled="province.disabled" :ref="`checkProvince${province.value}`">
                 <label for="checkbox">{{province.name}}</label>
             </div>
-            
+            <input type="checkbox" @change="setAll" >
+            <label for="checkbox">All</label>
         </div>
     </div>
 </template>
@@ -30,8 +31,7 @@ export default {
                 {name: 'Surxondaryo', value: 'Sur'},
                 {name: 'Toshkent', value: 'Tosh'},
                 {name: 'Xorazm', value: 'Xor'},
-                {name: 'Toshkent Shahar', value: 'G\'ij', disabled:true},
-                {name: 'All', value: 'All'}
+                {name: 'Toshkent Shahar', value: 'G\'ij', disabled:true}
             ],
             selected_provinces: []
         }
@@ -42,36 +42,18 @@ export default {
             default: ()=> []
         }
     },
-    mounted(){
-        this.getParent()
-    },
-    computed:{
-        
-    },
     methods:{
-        setEvent(k){
-            const inp_elem = this.$refs.checkProvince
-            let check_inp_elem
-            inp_elem.forEach(elem => {
-                check_inp_elem = elem.checked
-                // console.log(check_inp_elem)
-            })
-            if(k == 'All'){
-                this.selected_provinces = this.provinces_box
-                if(check_inp_elem && this.selected_provinces == this.provinces_box){
-                    this.setAllClass(inp_elem)
-                }
-                else{
-                    this.deleteAllClass(inp_elem)
-                }
-                
-            }
+        setAll() {
             
-            else{
-                let selected = this.provinces_box.find(elem => elem.value == k)
-                console.log(selected)
+            if (this.selected_provinces.length === 0) {
+                this.selected_provinces = this.provinces_box;
+                // TODO: add class to the checkbox for interface
+                // this.setAllClass()
+            } else {
+                this.selected_provinces = [];
+                // TODO: remove class from the checkbox for interface
+                // this.deleteAllClass()
             }
-                // console.log(inp_elem)
         },
         setAllClass(e){
                 e.forEach(item =>{
@@ -93,41 +75,7 @@ export default {
             })
         },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-       getParent(){
-        let parent = this.$refs.boxWrapper
-        setTimeout(()=>{
-            this.getDisabled(parent)
-        },1000)
-       },
-        getDisabled(e){
-            // console.log(e)
-            if(e.childElementCount == 2){
-                for(let k=0; k<e.childElementCount; k++){
-                    console.log(e)
-                }
-            }else{
-                let child
-                for(let i=0; i<e.length; i++){
-                    child = e[i]
-                    // console.log(child.childNodes.length)
-                }
-                    return this.getDisabled(child)
-            }
-            
-        }
+      
     }
 }
 </script>
