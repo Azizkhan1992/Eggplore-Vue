@@ -43,39 +43,32 @@ export default {
         }
     },
     methods:{
+        checkSelected(e){
+            console.log(e)
+        },
         setAll() {
-            
             if (this.selected_provinces.length === 0) {
                 this.selected_provinces = this.provinces_box;
                 // TODO: add class to the checkbox for interface
                 // this.setAllClass()
-            } else {
+                
+            }
+            
+            else {
                 this.selected_provinces = [];
                 // TODO: remove class from the checkbox for interface
                 // this.deleteAllClass()
             }
         },
-        setAllClass(e){
-                e.forEach(item =>{
-                item.classList.add('all-checkbox-active')
-            })
-        },
-        deleteAllClass(e){
-            e.forEach(item => {
-                item.classList.remove('all-checkbox-active')
-            })
-        },
-        setAllItemClass(e){
-            console.log(e)
-            e.forEach(item =>{
-                if(item.value == 'All'){
-                    item.classList.remove('all-checkbox-active')
-                    item.classList.add('all-item-active')
-                }
-            })
-        },
+
+
 
       
+    },
+    watch: {
+        'selected_provinces' : function(val){
+            this.checkSelected(val)
+        }
     }
 }
 </script>
