@@ -69,14 +69,7 @@ export default {
             
             else{
                 let selected = this.provinces_box.find(elem => elem.value == k)
-                if(this.selected_provinces.length>0){
-                    this.selected_provinces.forEach(elem => {
-                        console.log(elem)
-                    })
-                }else{
-                    this.selected_provinces.push(selected)
-                    console.log(this.selected_provinces)
-                }
+                console.log(selected)
             }
                 // console.log(inp_elem)
         },
