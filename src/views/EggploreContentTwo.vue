@@ -66,10 +66,7 @@
         <div @click="changeActiveClass" class="input-dropdown">
           <h5>Dropdown</h5>
           <div class="dropdown-blog">
-            <div
-              @click="checkActive"
-              class="visible-part"
-            >
+            <div @click="checkActive" class="visible-part">
               {{ default_value.text }}
               <svg
                 width="10"
@@ -86,25 +83,23 @@
                   fill="currentcolor"
                 />
               </svg>
-              <div
-              :class="isClockActive ? 'active-clock' : 'deactive-clock'"
-              >
+              <div :class="isClockActive ? 'active-clock' : 'deactive-clock'">
                 <svg
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                :class="isDropdownActive ? 'svg-four-active': 'svg-four-deactive'"
-                
-              >
-                <path
-                  d="M6 0C2.7 0 0 2.7 0 6C0 9.3 2.7 12 6 12C9.3 12 12 9.3 12 6C12 2.7 9.3 0 6 0ZM9 6.75H5.25V3H6.75V5.25H9V6.75Z"
-                  fill="currentcolor"
-                />
-              </svg>
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  :class="
+                    isDropdownActive ? 'svg-four-active' : 'svg-four-deactive'
+                  "
+                >
+                  <path
+                    d="M6 0C2.7 0 0 2.7 0 6C0 9.3 2.7 12 6 12C9.3 12 12 9.3 12 6C12 2.7 9.3 0 6 0ZM9 6.75H5.25V3H6.75V5.25H9V6.75Z"
+                    fill="currentcolor"
+                  />
+                </svg>
               </div>
-              
             </div>
             <div
               :class="
@@ -122,9 +117,32 @@
           <h5>Multi-Select</h5>
           <div class="multi-select-wrapper">
             <div @click="multiActive" class="multi-visible-part">
-            <div :class="isMultiInput ? 'show-selected-active' : 'show-selected-deactive'"  v-for="(defaults, idx) in default_multi_value" :key="idx">
-            {{defaults.text}}</div>
-            
+              <div
+                :class="
+                  isMultiInput
+                    ? 'show-selected-active'
+                    : 'show-selected-deactive'
+                "
+                v-for="(defaults, idx) in default_multi_value"
+                :key="idx"
+              >
+                {{ defaults.text }}
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="currentcolor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  :class="defaults.value ? 'multi-active-svg' : 'multi-deactive-svg'"
+                  @click.stop="deleteItem(defaults)"
+                >
+                  <path
+                    d="M6 0C2.7 0 0 2.7 0 6C0 9.3 2.7 12 6 12C9.3 12 12 9.3 12 6C12 2.7 9.3 0 6 0ZM8.625 7.575L7.575 8.625L6 7.05L4.425 8.625L3.375 7.575L4.95 6L3.375 4.425L4.425 3.375L6 4.95L7.575 3.375L8.625 4.425L7.05 6L8.625 7.575Z"
+                    fill="currentcolor"
+                  />
+                </svg>
+              </div>
+
               <svg
                 width="10"
                 height="7"
@@ -139,10 +157,18 @@
                 />
               </svg>
             </div>
-            <div :class="isMultiActive ? 'multi-hidden-active' : 'multi-hidden-deactive'">
-            <div class="multi-select" v-for="multi in multiValues" :key="multi.id">
-              <span @click="inputMultiValue(multi)">{{multi.text}}</span>
-            </div>
+            <div
+              :class="
+                isMultiActive ? 'multi-hidden-active' : 'multi-hidden-deactive'
+              "
+            >
+              <div
+                class="multi-select"
+                v-for="multi in multiValues"
+                :key="multi.id"
+              >
+                <span @click="inputMultiValue(multi)">{{ multi.text }}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -151,6 +177,7 @@
   </div>
 </template>
 <script>
+
 export default {
   name: "eggplore-content-two",
   data() {
@@ -163,14 +190,14 @@ export default {
       isClockActive: false,
       isMultiInput: false,
       default_value: { text: "Value1", id: 1 },
-      default_multi_value: [{ text: 'Enter the keyword', id: 1}],
+      default_multi_value: [{ text: "Enter the keyword", id: 1 }],
       selected_multi_values: [],
       multiValues: [
-        {text: 'Multi Value1', id: 1},
-        {text: 'Multi Value2', id: 2},
-        {text: 'Multi Value3', id: 3},
-        {text: 'Multi Value4', id: 4},
-        {text: 'Multi Value5', id: 5}
+        { text: "Multi Value1", id: 1, value: 'active' },
+        { text: "Multi Value2", id: 2 },
+        { text: "Multi Value3", id: 3 },
+        { text: "Multi Value4", id: 4 },
+        { text: "Multi Value5", id: 5 },
       ],
       values: [
         { text: "Value1", id: 1 },
@@ -180,36 +207,46 @@ export default {
     };
   },
   methods: {
-    showPassword(){
-      this.isShowPassword = ! this.isShowPassword
-    },
-    inputMultiValue(e){
-      if (this.selected_multi_values.includes(e)) {
-        this.selected_multi_values = this.selected_multi_values.filter(item => item !== e)
-      } else {
-        this.selected_multi_values.push(e)
+    deleteItem(item){
+      if(this.selected_multi_values.length){
+        let index = this.selected_multi_values.indexOf(item)
+      console.log(index)
+      this.selected_multi_values.splice(index, 1)
       }
       
-      if(this.selected_multi_values.length>0){
-        this.isMultiInput = true
-        this.default_multi_value = this.selected_multi_values
+    },
+    showPassword() {
+      this.isShowPassword = !this.isShowPassword;
+    },
+    inputMultiValue(e) {
+      // console.log(123, e)  
+      if (this.selected_multi_values.includes(e)) {
+        this.selected_multi_values = this.selected_multi_values.filter(
+          (item) => item !== e
+        );
       } else {
-        this.default_multi_value = this.selected_multi_values = []
+        this.selected_multi_values.push(e);
+      }
+
+      if (this.selected_multi_values.length > 0) {
+        this.isMultiInput = true;
+        this.default_multi_value = this.selected_multi_values;
+      } else {
+        this.default_multi_value = this.selected_multi_values = [];
       }
       // console.log(this.selected_multi_values)
     },
-    multiActive(){
-      this.isMultiActive = !this.isMultiActive
+    multiActive() {
+      this.isMultiActive = !this.isMultiActive;
     },
-    checkActive(){
-      this.isDropdownActive = !this.isDropdownActive
-      this.isClockActive = !this.isClockActive
-
+    checkActive() {
+      this.isDropdownActive = !this.isDropdownActive;
+      this.isClockActive = !this.isClockActive;
     },
-    changeActiveClass(){
-      setTimeout(()=>{
-        this.isClockActive = false
-      }, 1500)
+    changeActiveClass() {
+      setTimeout(() => {
+        this.isClockActive = false;
+      }, 1500);
     },
     changeEvent(e) {
       // console.log(e)
@@ -218,6 +255,4 @@ export default {
   },
 };
 </script>
-<style>
-
-</style>
+<style></style>

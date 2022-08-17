@@ -2,7 +2,7 @@
     <div class="checkboxes-container">
         <h5>CheckBoxes</h5>
         <div class="checkbox-content" ref="container">
-            <input type="checkbox" v-model="sport" v-for="(option, idx) in inputOptions" :key="idx" :value="option.value" :disabled="option.disabled" @change="tickCheckbox($event, options.value)" />
+            <input type="checkbox" ref="inputCheckbox" v-model="sport" v-for="(option, idx) in inputOptions" :key="idx" :value="option.value" :disabled="option.disabled" @change="tickCheckbox($event, options.value)" />
             <input type="checkbox" ref="resultCheckbox">
         </div>
     </div>
@@ -50,14 +50,15 @@ export default {
         this.init();
     },
     methods: {
+        
         init() {
             if (this.value.length > 0) {
                 this.sport = this.value;
                 const container = this.$refs.container;
-                // console.log(container.childNodes)
+                // console.log(typeof(container.childNodes))
 
                 container.childNodes.forEach(el => {
-                    // console.log(el.value, this.sport)
+                    // console.log(el.value)
                     if (this.sport.includes(el.value)) {
                         el.classList.add('sport-active')
                     }

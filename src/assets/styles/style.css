@@ -317,9 +317,11 @@ body {
 .other-left-btn .dot-btn:hover {
   background: #ffffff;
   border: 2px solid #6979f8;
+  display: flex;
+  align-items: center;
+  justify-items: center ;
 }
 .other-left-btn .dot-btn .dot-loader {
-  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   width: 24px;
@@ -809,6 +811,10 @@ body {
   text-align: center;
 }
 .multi-select-wrapper .multi-visible-part .show-selected-active {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
   width: 40%;
   height: 36px;
   background: #e5e7fa;
@@ -818,8 +824,16 @@ body {
   margin-top: 5px;
 }
 
-.multi-select-wrapper .multi-visible-part .show-selected-active::after {
-  content: " X";
+.multi-select-wrapper .multi-visible-part .show-selected-deactive .multi-deactive-svg{
+  height: 0;
+  overflow: hidden;
+}
+.multi-select-wrapper .multi-visible-part .show-selected-active .multi-deactive-svg{
+  height: 12px;
+  width: 24px;
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 2px;
 }
 .multi-select-wrapper .multi-visible-part .show-selected-deactive::after {
   content: "...";
@@ -2138,6 +2152,7 @@ body {
   height: 48px;
   background: #ffffff;
   box-shadow: inset 0 -1px 0px rgba(208, 201, 214, 0.4);
+  margin-bottom: 10px;
 }
 .eggplore-tabbar-container .tabbar-content button{
   width: 25%;
@@ -2153,19 +2168,70 @@ body {
   align-items: center;
   justify-items: center;
   color: #d0c9d6;
+  text-align: center;
 }
 .eggplore-tabbar-container .tabbar-content .tabbar div{
   position: relative;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-items: center;
 }
 .eggplore-tabbar-container .tabbar-content .tabbar div .default-active{
   color: #1a051d;
   font-weight: 600;
-  transition: all 1s linear;
+  transition: all 1.5s linear;
 }
-.eggplore-tabbar-container .tabbar-content .tabbar div svg{
+
+
+.eggplore-tabbar-container .tabbar-content .tabbar div .default-svg-deactive{
+  height: 0;
+  overflow: hidden;
+}
+.eggplore-tabbar-container .tabbar-content .tabbar div .default-svg-active{
+  display: block;
+  height: auto;
   color: #6979f8;
   position: absolute;
   left: 10px;
   bottom: 5px;
-  transition: all 1s linear;
+  transition: all 1.5s linear;
+}
+.eggplore-tabbar-container .tabbar-content .tab-content-container{
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  background: #e5e7fa;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.eggplore-tabbar-container .tabbar-content div .title-content-deactive{
+  height: 0;
+  overflow: hidden;
+}
+.eggplore-tabbar-container .tabbar-content div .title-content-active{
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background: #e5e7fa;
+  transition: all 1.5s linear;
+}
+
+
+
+
+/* Eggplore Checkbox Second */
+
+.second-box-container{
+  width: 32%;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
 }

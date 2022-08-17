@@ -11,7 +11,7 @@
             viewBox="0 0 47 3"
             fill="currentcolor"
             xmlns="http://www.w3.org/2000/svg"
-            v-if="header.active"
+            :class="header.active ? 'default-svg-active' : 'default-svg-deactive'"
           >
             <path
               d="M0 3C0 1.34315 1.34315 0 3 0H44C45.6569 0 47 1.34315 47 3H0Z"
@@ -51,7 +51,6 @@ export default {
   methods: {
     setActiveTab(tabValue) {
       this.tabHeaders = this.tabHeaders.map(item => {
-        console.log(item.active)
         item.active = false;
 
         if (item.value === tabValue) {

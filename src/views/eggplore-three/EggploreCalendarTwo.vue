@@ -23,10 +23,6 @@ export default {
         calendarInputActive(){
             this.isCalendarInput = ! this.isCalendarInput
         },
-        getSelectDate(){
-            const dateInput = document.querySelector('.datepicker-input')
-            console.log(dateInput)
-        }
     }
 }
 </script>
