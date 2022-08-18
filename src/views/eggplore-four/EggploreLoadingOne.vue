@@ -2,7 +2,7 @@
   <div class="loading-one-container">
     <h5>Loading One</h5>
     <div class="loading-one-content">
-      <input type="number" v-model="percentage" @keyup="loadingChange" />
+      <input type="number" v-model="percentage" min="0" max="100" />
       <span
         v-if="isShowPercent"
         :class="isShowPercent ? 'percent-show-active' : 'percent-show-deactive'"
@@ -22,12 +22,12 @@
       </span>
       <span
         v-else
-        :class="percentage ? 'percent-span-active' : 'percent-span-deactive'"
-        >{{ percentage }}</span
+        :class="style_percent ? 'percent-span-active' : 'percent-span-deactive'"
+        >{{ style_percent }}</span
       >
 
       <div class="show-loading">
-        <div class="show-percentage" :style="{ width: percentage + '%' }"></div>
+        <div class="show-percentage" :style="{ width: style_percent + '%' }"></div>
       </div>
     </div>
   </div>
@@ -38,18 +38,32 @@ export default {
   data() {
     return {
       percentage: 0,
+      style_percent: 0,
       isShowPercent: false,
     };
   },
   methods: {
-    loadingChange() {
-      if (this.percentage == 100) {
+    loadingChange(e) {
+      if (e == 100) {
+        this.style_percent = e
         this.isShowPercent = true;
       }
       else{
+        this.style_percent = e
         this.isShowPercent = false
       }
     },
   },
+  watch:{
+    'percentage' : function(val){
+      if(val>=100){
+        this.loadingChange(100)
+      }else if(val<=0){
+        this.loadingChange(0)
+      }else{
+        this.loadingChange(this.percentage)
+      }
+    }
+  }
 };
 </script>

@@ -60,7 +60,6 @@
                 fill="currentcolor"
               />
             </svg>
-            <!-- <div>{{checkInput() }}</div> -->
           </div>
         </div>
         <div @click="changeActiveClass" class="input-dropdown">
@@ -133,7 +132,9 @@
                   viewBox="0 0 12 12"
                   fill="currentcolor"
                   xmlns="http://www.w3.org/2000/svg"
-                  :class="defaults.value ? 'multi-active-svg' : 'multi-deactive-svg'"
+                  :class="
+                    defaults.value ? 'multi-active-svg' : 'multi-deactive-svg'
+                  "
                   @click.stop="deleteItem(defaults)"
                 >
                   <path
@@ -177,7 +178,6 @@
   </div>
 </template>
 <script>
-
 export default {
   name: "eggplore-content-two",
   data() {
@@ -193,7 +193,7 @@ export default {
       default_multi_value: [{ text: "Enter the keyword", id: 1 }],
       selected_multi_values: [],
       multiValues: [
-        { text: "Multi Value1", id: 1, value: 'active' },
+        { text: "Multi Value1", id: 1, value: "active" },
         { text: "Multi Value2", id: 2 },
         { text: "Multi Value3", id: 3 },
         { text: "Multi Value4", id: 4 },
@@ -207,19 +207,17 @@ export default {
     };
   },
   methods: {
-    deleteItem(item){
-      if(this.selected_multi_values.length){
-        let index = this.selected_multi_values.indexOf(item)
-      console.log(index)
-      this.selected_multi_values.splice(index, 1)
+    deleteItem(item) {
+      if (this.selected_multi_values.length) {
+        let index = this.selected_multi_values.indexOf(item);
+        console.log(index);
+        this.selected_multi_values.splice(index, 1);
       }
-      
     },
     showPassword() {
       this.isShowPassword = !this.isShowPassword;
     },
     inputMultiValue(e) {
-      // console.log(123, e)  
       if (this.selected_multi_values.includes(e)) {
         this.selected_multi_values = this.selected_multi_values.filter(
           (item) => item !== e
@@ -234,7 +232,6 @@ export default {
       } else {
         this.default_multi_value = this.selected_multi_values = [];
       }
-      // console.log(this.selected_multi_values)
     },
     multiActive() {
       this.isMultiActive = !this.isMultiActive;
@@ -249,7 +246,6 @@ export default {
       }, 1500);
     },
     changeEvent(e) {
-      // console.log(e)
       this.default_value = e;
     },
   },

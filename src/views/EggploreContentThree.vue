@@ -97,26 +97,34 @@
       <div class="date-picker">
         <div class="change-date-picker" @click="changeDatePicker">
           <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="currentcolor"
-          xmlns="http://www.w3.org/2000/svg"
-          :class="isChangePicker ? 'change-picker-active' : 'change-picker-deactive'"
-        >
-          <path
-            d="M15 2C15.552 2 16 2.448 16 3V15C16 15.552 15.552 16 15 16H1C0.448 16 0 15.552 0 15V3C0 2.448 0.448 2 1 2H3V0H6V2H10V0H13V2H15ZM14 14V5H2V14H14ZM4 7H6V9H4V7ZM7 7H9V9H7V7Z"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
             fill="currentcolor"
-          />
-        </svg>
-        <h4 :class="isChangePicker ? 'change-title-active' : 'change-title-deactive'">Change Date Picker</h4>
+            xmlns="http://www.w3.org/2000/svg"
+            :class="
+              isChangePicker ? 'change-picker-active' : 'change-picker-deactive'
+            "
+          >
+            <path
+              d="M15 2C15.552 2 16 2.448 16 3V15C16 15.552 15.552 16 15 16H1C0.448 16 0 15.552 0 15V3C0 2.448 0.448 2 1 2H3V0H6V2H10V0H13V2H15ZM14 14V5H2V14H14ZM4 7H6V9H4V7ZM7 7H9V9H7V7Z"
+              fill="currentcolor"
+            />
+          </svg>
+          <h4
+            :class="
+              isChangePicker ? 'change-title-active' : 'change-title-deactive'
+            "
+          >
+            Change Date Picker
+          </h4>
         </div>
-        <eggplore-calendar-two v-if="isChangePicker"/>
+        <eggplore-calendar-two v-if="isChangePicker" />
 
         <eggplore-calendar-one v-else v-model="date" />
       </div>
       <div class="text-box">
-        <eggplore-text-box/>
+        <eggplore-text-box />
       </div>
     </div>
   </div>
@@ -124,11 +132,16 @@
 <script>
 import EggploreLocation from "./eggplore-three/EggploreLocation.vue";
 import EggploreCalendarOne from "./eggplore-three/EggploreCalendarOne.vue";
-import EggploreCalendarTwo from './eggplore-three/EggploreCalendarTwo.vue';
+import EggploreCalendarTwo from "./eggplore-three/EggploreCalendarTwo.vue";
 import EggploreTextBox from "./eggplore-three/EggploreTextBox.vue";
 export default {
   name: "search-app",
-  components: { EggploreLocation, EggploreCalendarOne, EggploreCalendarTwo, EggploreTextBox },
+  components: {
+    EggploreLocation,
+    EggploreCalendarOne,
+    EggploreCalendarTwo,
+    EggploreTextBox,
+  },
   data() {
     return {
       isChangePicker: false,
@@ -155,8 +168,8 @@ export default {
   },
   mounted() {},
   methods: {
-    changeDatePicker(){
-      this.isChangePicker = ! this.isChangePicker
+    changeDatePicker() {
+      this.isChangePicker = !this.isChangePicker;
     },
     findRegion(e) {
       let input_value = e.target.value;
@@ -164,12 +177,7 @@ export default {
         item = item.toLowerCase();
         return item.includes(input_value.toLowerCase());
       });
-      // this.regions.forEach((element) => {
-      //   // let search_reg = element.toLowerCase
-      //   let found_value = element.match(`${input_value}`);
-      //   this.region = found_value;
-      //   console.log(this.region);
-      // });
+
       console.log(this.region);
     },
 
@@ -180,14 +188,6 @@ export default {
       this.input_one_found = null;
     },
   },
-  watch: {
-    date: function (val) {
-      console.log(val);
-    },
-  },
 };
 </script>
-<style>
-
-
-</style>
+<style></style>

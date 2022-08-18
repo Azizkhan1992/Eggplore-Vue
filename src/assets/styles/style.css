@@ -1714,11 +1714,35 @@ body {
 }
 .checkboxes-container .checkbox-content input.checkbox-unchecked::after {
   content: "-";
-  font-size: 0.75rem;
+  font-size: 1.15rem;
+  width: 30px;
+  height: 24px;
+  color: #6979f8;
 }
 .checkboxes-container .checkbox-content input[type="checkbox"]:disabled {
   border: none;
   background: #f7f5f9;
+}
+.checkboxes-container .checkbox-content .all-elem-active{
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: #ffffff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 7px 64px rgba(0, 0, 0, 0.07);
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+.checkboxes-container .checkbox-content .all-elem-active::after{
+  content: "";
+  mask: url("@/assets/Content-four/Path.svg") no-repeat 50% 50%;
+  width: 40px;
+  height: 30px;
+  font-size: 0.75rem;
+  background: #6979f8;
 }
 
 /* Eggplore Radio Button */
@@ -2154,7 +2178,7 @@ body {
   box-shadow: inset 0 -1px 0px rgba(208, 201, 214, 0.4);
   margin-bottom: 10px;
 }
-.eggplore-tabbar-container .tabbar-content button{
+.eggplore-tabbar-container .tabbar-content .tabbar .tab-header-deactive .default-deactive{
   width: 25%;
   height: 100%;
   cursor: pointer;
@@ -2170,17 +2194,33 @@ body {
   color: #d0c9d6;
   text-align: center;
 }
-.eggplore-tabbar-container .tabbar-content .tabbar div{
+.eggplore-tabbar-container .tabbar-content .tabbar .tab-header-active{
   position: relative;
   width: 25%;
   display: flex;
   align-items: center;
   justify-items: center;
+  text-align: center;
+  background: #e5e7fa;
+  opacity: 1;
+  transition: all 1.5s ease;
 }
-.eggplore-tabbar-container .tabbar-content .tabbar div .default-active{
+.eggplore-tabbar-container .tabbar-content .tabbar .tab-header-deactive{
+  position: relative;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  opacity: .5;
+}
+
+.eggplore-tabbar-container .tabbar-content .tabbar .tab-header-active .default-active{
   color: #1a051d;
   font-weight: 600;
-  transition: all 1.5s linear;
+  background: #e5e7fa;
+  border: none;
+  font-size: 1rem;
+  transition: font-size 1.5s ease;
 }
 
 
@@ -2234,4 +2274,226 @@ body {
   margin-left: 20px;
   display: flex;
   flex-direction: column;
+}
+.second-box-container h5{
+  display: inline-block;
+  margin: 0;
+  margin: 35px 0 35px 0;
+  text-transform: uppercase;
+  font-size: 1rem;
+  line-height: 24px;
+}
+.second-box-container .second-box-content{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-items: center;
+  padding: 5px 0 5px 15px;
+  box-sizing: border-box;
+}
+.second-box-container .second-box-content .second-box-wrapper{
+  display: flex;
+  width: 50%;
+  align-items: center;
+  justify-items: center;
+  margin-top: 5px;
+}
+.second-box-container .second-box-content .second-box-wrapper label{
+  display: inline-block; 
+  margin-left: 10px;
+  font-size: 0.9rem;
+  line-height: 20px;
+}
+.second-box-container .second-box-content .all-input-block{
+  display: flex;
+  width: 50%;
+  margin-top: 5px;
+  align-items: center;
+}
+.second-box-container .second-box-content .all-input-block label{
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 0.9rem;
+  line-height: 20px;
+}
+.second-box-container .second-box-content .all-input-block .all-deactive{
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: #ffffff;
+  box-shadow: 0 7px 64px rgba(0, 0, 0, 0.07);
+  border: 1px solid #ecebed;
+  border-radius: 5px;
+}
+.second-box-container .second-box-content .all-input-block .all-active{
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: #ffffff;
+  box-shadow: 0 7px 64px rgba(0, 0, 0, 0.07);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+.second-box-container .second-box-content .all-input-block .all-active::after{
+  content: "";
+  mask: url("@/assets/Content-five/Path.svg") no-repeat 50% 50%;
+  width: 40px;
+  height: 30px;
+  font-size: 0.75rem;
+  background: #6979f8;
+}
+.second-box-container .second-box-content .all-input-block .all-item-active{
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: #ffffff;
+  box-shadow: 0 7px 64px rgba(0, 0, 0, 0.07);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+.second-box-container .second-box-content .all-input-block .all-item-active::after{
+  content: "-";
+  width: 40px;
+  height: 24px;
+  font-size: 1.15rem;
+  color: #6979f8;
+}
+.second-box-container .second-box-content .second-box-wrapper .input-all-deactive{
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: #ffffff;
+  box-shadow: 0 7px 64px rgba(0, 0, 0, 0.07);
+  border: 1px solid #ecebed;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.second-box-container .second-box-content .second-box-wrapper .input-item-active{
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: #ffffff;
+  box-shadow: 0 7px 64px rgba(0, 0, 0, 0.07);
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+.second-box-container .second-box-content .second-box-wrapper .input-item-active::after{
+  content: "";
+  mask: url('@/assets/Content-five/Path.svg') no-repeat 50% 50%;
+  width: 40px;
+  height: 30px;
+  font-size: 0.75rem;
+  background: #6979f8;
+}
+.second-box-container .second-box-content .second-box-wrapper .input-item-deactive{
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: #ffffff;
+  box-shadow: 0 7px 64px rgba(0, 0, 0, 0.07);
+  border: 1px solid #ecebed;
+  border-radius: 5px;
+}
+.second-box-container .second-box-content .second-box-wrapper .input-all-active{
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: #ffffff;
+  box-shadow: 0 7px 64px rgba(0, 0, 0, 0.07);
+  border-radius: 5px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+.second-box-container .second-box-content .second-box-wrapper .input-all-active::after{
+  content: "";
+  mask: url('@/assets/Content-five/Path.svg') no-repeat 50% 50%;
+  width: 40px;
+  height: 30px;
+  font-size: 0.75rem;
+  background: #6979f8;
+}
+
+
+
+
+
+
+/* Eggplore Six Container */
+
+.eggplore-six-container{
+  margin: 40px 0 0 120px;
+}
+.eggplore-six-container .eggplore-six-content{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+.eggplore-six-container .eggplore-six-content h5{
+  display: inline-block;
+  margin: 0;
+  margin: 35px 0 35px 0;
+  text-transform: uppercase;
+  font-size: 1rem;
+  line-height: 24px;
+}
+
+
+.carousel-container{
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+}
+.carousel-container .carousel-content{
+  max-width: 900px;
+  overflow: hidden;
+  margin: auto;
+}
+.carousel-container .carousel-content .carousel-wrapper{
+  display: flex;
+  transition: all ease 1s;
+}
+.carousel-item-container .carousel-title{
+  min-width: 900px;
+}
+.carousel-container .carousel-btn{
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  margin-top: 25px;
+}
+.carousel-container .carousel-btn button{
+  display: inline-block;
+  margin-right: 15px;
+  width: 75px;
+  height: 24px;
+  cursor: pointer;
+  background: #6979f8;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 0.85rem;
+}
+.carousel-container .carousel-btn button:hover{
+  background: #ffffff;
+  border: 1px solid #6979f8;
+  color: #6979f8;
 }

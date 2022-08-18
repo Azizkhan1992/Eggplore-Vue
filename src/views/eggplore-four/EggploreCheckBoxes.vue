@@ -2,8 +2,8 @@
     <div class="checkboxes-container">
         <h5>CheckBoxes</h5>
         <div class="checkbox-content" ref="container">
-            <input type="checkbox" ref="inputCheckbox" v-model="sport" v-for="(option, idx) in inputOptions" :key="idx" :value="option.value" :disabled="option.disabled" @change="tickCheckbox($event, options.value)" />
-            <input type="checkbox" ref="resultCheckbox">
+            <input type="checkbox" ref="inputCheckbox" :class="{'all-options-active' : isAllActive}" v-model="sport" v-for="(option, idx) in inputOptions" :key="idx" :value="option.value" :disabled="option.disabled" @change="tickCheckbox($event, options.value)" />
+            <input type="checkbox" ref="resultCheckbox" @change="selectAll">
         </div>
     </div>
 </template>
@@ -30,6 +30,7 @@ export default {
 
     data(){
         return{
+            isAllActive: false,
             sport: []
         }
     },
@@ -50,6 +51,33 @@ export default {
         this.init();
     },
     methods: {
+        selectAll(){
+            if(this.sport.length == 0){
+                this.sport = this.options
+                const input_elem = this.$refs.inputCheckbox
+                input_elem.forEach(elem => {
+                    if(elem.disabled){
+                        // console.log(1,elem)
+                    }else{
+                        elem.classList.add('all-elem-active')
+                        console.log(elem.classList)
+                    }
+                })
+            }
+            else{
+                this.sport = []
+                const input_elem = this.$refs.inputCheckbox
+                input_elem.forEach(elem => {
+                    if(elem.disabled){
+                        // console.log(1,elem)
+                    }else{
+                        elem.classList.remove('all-elem-active')
+                        elem.classList.remove('sport-active')
+                        console.log(elem.classList)
+                    }
+                })
+            }
+        },
         
         init() {
             if (this.value.length > 0) {

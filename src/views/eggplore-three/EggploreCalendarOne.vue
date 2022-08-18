@@ -3,7 +3,6 @@
     <h5>Date Picker One</h5>
     <div class="calendar-content">
       <div
-      
         @click="calendarActive"
         :class="
           isCalendarActive
@@ -11,10 +10,8 @@
             : 'calendar-visible-deactive'
         "
       >
-      
-        <span v-for="(now, idx) in now_date" :key="idx">{{now}}</span>
+        <span v-for="(now, idx) in now_date" :key="idx">{{ now }}</span>
 
-      
         <svg
           width="16"
           height="16"
@@ -80,9 +77,7 @@
                 </th>
               </tr>
             </thead>
-            <tbody ref="dayItems">
-
-            </tbody>
+            <tbody ref="dayItems"></tbody>
           </table>
         </div>
       </div>
@@ -95,8 +90,8 @@ export default {
   props: {
     value: {
       type: [Date, String],
-      default: () => new Date()
-    }
+      default: () => new Date(),
+    },
   },
   data() {
     return {
@@ -131,7 +126,7 @@ export default {
         "Noyabr",
         "Dekabr",
       ],
-      otherMonth: null
+      otherMonth: null,
     };
   },
   mounted() {
@@ -144,111 +139,129 @@ export default {
         return this.otherMonth;
       }
 
-      return typeof this.value == 'string' ? new Date(this.value) : this.value;
+      return typeof this.value == "string" ? new Date(this.value) : this.value;
     },
     firstDate() {
-      return new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), 1)
+      return new Date(
+        this.currentDate.getFullYear(),
+        this.currentDate.getMonth(),
+        1
+      );
     },
     lastDate() {
-      return new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() + 1, 0)
+      return new Date(
+        this.currentDate.getFullYear(),
+        this.currentDate.getMonth() + 1,
+        0
+      );
     },
     calendarRows() {
       return 35 - this.getDay(this.firstDate) < this.lastDate.getDate() ? 6 : 5;
-    }
+    },
   },
   methods: {
-    getMonthDays(){
+    getMonthDays() {
       let daysContainer = this.$refs.dayItems;
       let day = 1;
 
       for (let x = 1; x <= this.calendarRows; x++) {
-        const row = this.createElement('tr');
+        const row = this.createElement("tr");
         for (let y = 1; y <= 7; y++) {
-          const column = this.createElement('td');
-          
-          this.addEventToDay(column)
+          const column = this.createElement("td");
+
+          this.addEventToDay(column);
 
           if (
             (x == 1 && y >= this.getDay(this.firstDate)) ||
             (day <= this.lastDate.getDate() && x != 1)
           ) {
-            let this_day = this.currentDate.getDate()
-            if(day == this_day) {console.log(this_day, day)
-              column.classList.add('current-day')
+            let this_day = this.currentDate.getDate();
+            if (day == this_day) {
+              column.classList.add("current-day");
             }
             column.innerText = day++;
-            
           }
 
-          row.appendChild(column)
+          row.appendChild(column);
         }
-        daysContainer.appendChild(row)
+        daysContainer.appendChild(row);
       }
     },
     isCurrentDate() {
-      return this.currentDate
+      return this.currentDate;
     },
     getDay(day) {
       const calendarDay = day.getDay();
       return calendarDay === 0 ? 7 : calendarDay;
     },
     createElement(elName) {
-      return document.createElement(elName)
+      return document.createElement(elName);
     },
     getNowDate() {
-      // let now = new Date().toISOString().slice(0, 10);
       let now = new Date();
-      // this.now_date = now
-      // console.log(now)
-      let day = now.getDate()
+      let day = now.getDate();
       let month = now.getMonth();
       let year = now.getFullYear();
       for (let i = 0; i < this.months.length; i++) {
         if (i === month) {
-          this.now_date.push(day,this.months[i], year);
+          this.now_date.push(day, this.months[i], year);
         }
       }
-      // console.log(this.now_date);
     },
     calendarActive() {
       this.isCalendarActive = !this.isCalendarActive;
     },
     prevMonth() {
-      this.changeMonth()
-      this.refreshCalendar()
+      this.changeMonth();
+      this.refreshCalendar();
     },
     nextMonth() {
-      this.changeMonth(true)
+      this.changeMonth(true);
       this.refreshCalendar();
     },
     refreshCalendar() {
-      this.$refs.dayItems.innerHTML = '';
-      this.getMonthDays() 
+      this.$refs.dayItems.innerHTML = "";
+      this.getMonthDays();
     },
     changeMonth(isNext = false) {
-      const month = isNext ? this.currentDate.getMonth() + 1 : this.currentDate.getMonth() - 1;
+      const month = isNext
+        ? this.currentDate.getMonth() + 1
+        : this.currentDate.getMonth() - 1;
 
-      this.otherMonth = new Date(this.currentDate.getFullYear(), month, this.currentDate.getDate())
+      this.otherMonth = new Date(
+        this.currentDate.getFullYear(),
+        month,
+        this.currentDate.getDate()
+      );
     },
     addEventToDay(column) {
-      column.addEventListener('click', (e) => {
-        column.classList.add('current-selected-day')
-        let user_selected_date = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), +e.target.innerText)
-        this.now_date = []
-        let user_day = user_selected_date.getDate()
-        let user_year = user_selected_date.getFullYear()
-        let user_month = user_selected_date.getMonth()
+      column.addEventListener("click", (e) => {
+        column.classList.add("current-selected-day");
+        let user_selected_date = new Date(
+          this.currentDate.getFullYear(),
+          this.currentDate.getMonth(),
+          +e.target.innerText
+        );
+        this.now_date = [];
+        let user_day = user_selected_date.getDate();
+        let user_year = user_selected_date.getFullYear();
+        let user_month = user_selected_date.getMonth();
         for (let i = 0; i < this.months.length; i++) {
-        if (i === user_month) {
-          this.now_date.push(user_day,this.months[i], user_year);
+          if (i === user_month) {
+            this.now_date.push(user_day, this.months[i], user_year);
+          }
         }
-      }
-        this.$emit('input', new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), +e.target.innerText))
-      })
-    }
+        this.$emit(
+          "input",
+          new Date(
+            this.currentDate.getFullYear(),
+            this.currentDate.getMonth(),
+            +e.target.innerText
+          )
+        );
+      });
+    },
   },
 };
 </script>
-<style>
-
-</style>
+<style></style>

@@ -22,12 +22,12 @@
       </div>
 
       <div class="direction-dot-loader">
-            <div :class="search_direction ? 'dot-fire' : 'dot-not-fire'">
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
+        <div :class="search_direction ? 'dot-fire' : 'dot-not-fire'">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
 
       <svg
         width="32"
@@ -88,7 +88,7 @@
             placeholder="Enter destination..."
             v-model="search_direction"
           />
-          
+
           <svg
             width="12"
             height="12"
@@ -125,21 +125,7 @@ export default {
   },
   methods: {
     changePath() {
-      //   this.isPathDirection = !this.isPathDirection
       this.isPathButton = !this.isPathButton;
-
-      //   let parentNode = this.$refs.containterDiv;
-      //   let firstChildEl = parentNode.firstChild;
-      //   let lastChildEl = parentNode.lastChild;
-      //   lastChildEl.style.marginTop = 0;
-      //   lastChildEl.style.borderTop = "none";
-
-      // console.log(parentNode)
-      //   console.log(firstChildEl);
-      //   console.log(lastChildEl);
-
-      //   parentNode.append(firstChildEl);
-      //   parentNode.prepend(lastChildEl);
     },
     deleteSearchDirection() {
       this.search_direction = null;
@@ -147,6 +133,4 @@ export default {
   },
 };
 </script>
-<style>
-
-</style>
+<style></style>

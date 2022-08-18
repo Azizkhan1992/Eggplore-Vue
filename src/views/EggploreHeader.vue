@@ -97,7 +97,7 @@
       </div>
     </div>
     <div class="eggplore-header-right">
-        <h6>Crafted by Eggvenger</h6>
+      <h6>Crafted by Eggvenger</h6>
     </div>
   </div>
 </template>
@@ -106,6 +106,4 @@ export default {
   name: "eggplore-header",
 };
 </script>
-<style>
-
-</style>
+<style></style>
