@@ -511,12 +511,15 @@ body {
 }
 .input-forms-container .input-forms {
   width: 90%;
+  background-image: conic-gradient(red 30deg,yellow 90deg, green 150deg, blue 210deg, violet 270deg, orange 330deg);
 }
 .input-forms .input-forms-wrapper {
   display: flex;
   flex-direction: row;
   width: 100%;
   margin: auto;
+  padding: 0 10px 5px 0;
+  box-sizing: border-box;
 }
 .input-forms .input-forms-wrapper .input-default {
   display: flex;
@@ -1642,7 +1645,7 @@ body {
   flex-direction: row;
 }
 .other-components-container .other-components-content .switch-change {
-  background-color: #e5e7fa;
+  background-image: repeating-radial-gradient(rgba(255,0,0,0.4),rgba(255,255,0,0.6) 10%,rgba(0,128,0,0.8) 20%,rgba(238,130,238,1) 30%);
   border-radius: 5px;
   padding: 5px 5px 15px 5px;
   box-sizing: border-box;
@@ -2262,6 +2265,8 @@ body {
   border-radius: 5px;
   background: #e5e7fa;
   transition: all 1.5s linear;
+  color: #ffffff;
+  background-image: linear-gradient(to right, rgba(255,165,0,0.6), rgba(0,128,0,0.7),rgba(0,0,255,0.8),rgba(75,0,130,0.9),rgba(238,130,238,1));
 }
 
 
