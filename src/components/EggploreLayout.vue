@@ -7,7 +7,7 @@
     <eggplore-content-four/>
     <eggplore-content-five/>
     <eggplore-content-six/>
-    <app-inc-dec v-model="count"></app-inc-dec>
+    <eggplore-content-eight/>
   </div>
 </template>
 <script>
@@ -18,7 +18,7 @@ import EggploreContentThree from '@/views/EggploreContentThree.vue';
 import EggploreContentFour from '@/views/EggploreContentFour.vue';
 import EggploreContentFive from '@/views/EggploreContentFive.vue';
 import EggploreContentSix from '@/views/EggploreContentSix.vue';
-import AppIncDec from './AppIncDec.vue';
+import EggploreContentEight from '@/views/EggploreContentEight.vue';
 export default {
   name: "eggplore-app",
   components:{
@@ -29,7 +29,7 @@ export default {
     EggploreContentFour,
     EggploreContentFive,
     EggploreContentSix,
-    AppIncDec
+    EggploreContentEight
   },
   data() {
     return {
