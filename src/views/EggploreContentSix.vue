@@ -1,7 +1,7 @@
 <template>
     <div class="eggplore-six-container">
         <div class="eggplore-six-content">
-            <h5>Slide</h5>
+            <h5>Carousel</h5>
             <eggplore-carousel :slider_images="slider_images" :interval="3000"/>
         </div>
     </div>

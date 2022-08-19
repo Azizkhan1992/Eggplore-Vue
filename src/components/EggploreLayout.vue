@@ -7,6 +7,7 @@
     <eggplore-content-four/>
     <eggplore-content-five/>
     <eggplore-content-six/>
+    <eggplore-content-seven/>
     <eggplore-content-eight/>
   </div>
 </template>
@@ -18,6 +19,7 @@ import EggploreContentThree from '@/views/EggploreContentThree.vue';
 import EggploreContentFour from '@/views/EggploreContentFour.vue';
 import EggploreContentFive from '@/views/EggploreContentFive.vue';
 import EggploreContentSix from '@/views/EggploreContentSix.vue';
+import EggploreContentSeven from '@/views/EggploreContentSeven.vue';
 import EggploreContentEight from '@/views/EggploreContentEight.vue';
 export default {
   name: "eggplore-app",
@@ -29,6 +31,7 @@ export default {
     EggploreContentFour,
     EggploreContentFive,
     EggploreContentSix,
+    EggploreContentSeven,
     EggploreContentEight
   },
   data() {

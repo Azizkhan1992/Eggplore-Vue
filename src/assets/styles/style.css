@@ -2652,3 +2652,64 @@ body {
   color: #ffffff;
   transition: all .5s ease;
 }
+
+
+
+
+
+/* Eggplore Seven */
+
+.eggplore-seven-container{
+  margin: 60px 0 0 120px;
+}
+
+.eggplore-seven-container h5{
+  display: inline-block;
+  margin: 0;
+  margin: 35px 0 35px 0 ;
+  font-size: 1rem;
+  text-transform: uppercase;
+  line-height: 24px;
+}
+
+.eggplore-seven-container .eggplore-seven-content{
+  width: 90%;
+}
+
+
+.owl-carousel-container{
+  position: relative;
+  width: 900px;
+  height: 480px;
+  overflow: hidden;
+  margin: auto;
+}
+.owl-carousel-container button{
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  /* top: calc(50%-50px); */
+  top: 200px;
+  background-color: rgb(0, 0, 0, 0.8);
+  border: none;
+  color: #ffffff;
+}
+.owl-carousel-container button:focus,
+.owl-carousel-container button:hover{
+  outline: none;
+  cursor: pointer;
+}
+.owl-carousel-container .next{
+  right: 0;
+}
+.owl-carousel-container .prev{
+  left: 0;
+}
+
+.owl-carousel-container .owl-carousel-slide{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
