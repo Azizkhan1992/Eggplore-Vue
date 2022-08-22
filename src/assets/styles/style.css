@@ -2713,3 +2713,53 @@ body {
   right: 0;
   bottom: 0;
 }
+
+
+
+
+/* Eggplore Carousel Slider */
+
+.carousel-slider-container{
+  margin: 180px 0 0 120px;
+}
+
+.carousel-slider-container .carousel-slider-content{
+  max-width: 980px;
+  height: 320px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+.carousel-slider-container .carousel-slider-content .carousel-slider-item{
+  width: 100%;
+  height: 320px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+}
+
+.carousel-slider-container .carousel-slider-content .carousel-slider-item .hidden-items{
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.carousel-slider-container .carousel-slider-content .carousel-slider-item .carousel-active-items{
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+}
+
+.carousel-slider-container .carousel-slider-content .carousel-slider-item .carousel-big-item {
+  transform: scale(1.25, 1.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+.carousel-slider-container .carousel-slider-content .carousel-slider-item .carousel-big-item img{
+  transform: scale(1.25, 1.25);
+}
