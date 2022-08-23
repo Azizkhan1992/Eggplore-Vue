@@ -95,7 +95,7 @@
         <eggplore-location/>
       </div>
       <div class="date-picker">
-        <eggplore-calendar/>
+        <eggplore-calendar />
       </div>
       <div class="text-box"></div>
     </div>
