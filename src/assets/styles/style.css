@@ -2720,9 +2720,15 @@ body {
 /* Eggplore Carousel Slider */
 
 .carousel-slider-container{
-  margin-top: 120px;
+  margin-top: 100px;
   margin-left: 160px;
   height: 320px;
+
+    position: relative;
+    width: 1095px;
+    height: 480px;
+    overflow: hidden;
+
 }
 
 /* @media screen and (max-width: 375px) {
@@ -2733,20 +2739,49 @@ body {
   }
   } */
 
-.carousel-slider-container .carousel-slider-content .owl-carousel-wrapper{
+.owl-carousel-wrapper{
+  padding: 20px;
   position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
   height: 440px;
+  width: 100vw !important;
 }
 
-.carousel-slider-container .carousel-slider-content{
-  position: relative;
-  overflow: hidden;
-  -webkit-transform: translate3d(0,0,0);
+
+.carousel-item{
+  width: 170px;
+  height: 270px;
+  margin-right: 10px;
 }
-.carousel-slider-container .carousel-slider-content .owl-carousel-wrapper .carousel-item{
-  float: left;
-  -webkit-backface-visibility: hidden;
-  -webkit-transform: translate3d(0,0,0);
-  position: relative;
-  -webkit-tap-highlight-color: transparent;
+
+.first-hidden {
+  position: absolute;
+  margin-left: calc(-20% - 20px);
+}
+
+.second-hidden {
+  position: absolute;
+  right: calc(-20% - 20px);
+}
+
+.shrunk {
+  width: calc(20% - 20px);
+  height: 250px;
+}
+
+.hidden {
+  width: 0;
+  animation-duration: 10s;
+  animation-name: 'shrunk-hidden';
+}
+
+@keyframes shrunk-hidden {
+  0% {
+    width: calc(20% - 20px);;
+  }
+  100% {
+    width: 0
+  }
 }
