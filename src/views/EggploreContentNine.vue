@@ -1,20 +1,20 @@
 <template>
-    <div class="carousel-slider-container" :style="container_style">
-      <div class="carousel-slider-content">
-        <div class="owl-carousel-wrapper" :style="[wrapper_style, transformStep]">
-          <div class="carousel-item" v-for="(slide, idx) in carousel" :key="idx"
-          :style="item_style"
-          >
-            <img :src="require('@/assets/Content-nine/' + slide.img)" alt="">
-            <h3>{{slide.name}}</h3>
-            <p>{{slide.title}}</p>
-            <button>{{slide.button}}</button>
-          </div>
-        </div>
-      </div>
+  <div class="owl-carousel-wrapper">
+    
+    <div class="carousel-item" v-for="(slide, idx) in carousel" :key="idx"
+    :class="idx == 0 ? 'fisrt-hidden' : '' || idx >= 6 ? 'second-hidden' : ''"
+    @click="play()"
+    >
+
+      <img class="multi-active" :src="require('@/assets/Content-nine/' + slide.img)" alt="">
+      <h3 class="multi-active">{{slide.name}}</h3>
+      <p class="multi-active">{{slide.title}}</p>
+      <button class="multi-active">{{slide.button}}</button>
     </div>
+  </div>
 </template>
 <script>
+
 
 export default {
     name: 'carousel-slider',
@@ -95,14 +95,17 @@ export default {
         }
       },
       transformStep(){
-        const step_size = this.counter * (this.item_width + this.margin_right)
+        const step_size = this.move_left * (this.item_width + this.margin_right)
         return{transform: `translate3d(${-1* step_size}px, 0, 0)`}
       },
       left_side(){
-        return JSON.parse(JSON.stringify(this.owl_carousel))
+        return JSON.parse(JSON.stringify(this.owl_carousel.slice(0, 3)))
+      },
+      move_left(){
+        return this.left_side.length + this.counter
       },
       right_side(){
-        return JSON.parse(JSON.stringify(this.owl_carousel))
+        return JSON.parse(JSON.stringify(this.owl_carousel.slice(-3,-1)))
       },
       carousel(){
         return [...this.left_side, ...this.owl_carousel, ...this.right_side]
@@ -111,34 +114,21 @@ export default {
     methods:{
       play(){
         setInterval(() =>{
-          if(this.counter>= this.carousel.length-1){
-            this.counter = 0
-          }else{
-            this.counter++
-            // let item = this.carousel.splice(0,1)
-            //   for(let i =0; i<item.length; i++){
-            //   this.carousel.push(item[i])
-            //   }
-
-            // let item = this.carousel.shift()
-            // this.carousel.push(item)
-            
-              
-          }
+            let item = this.owl_carousel.shift()
+            this.owl_carousel.push(item)
         }, 2000)
       },
-      carousel_push(){
-        //TODO
-              // let item = this.carousel.shift()
-              setInterval(()=>{
-                let item = this.carousel.splice(0,1)
-              for(let i =0; i<item.length; i++){
-              this.carousel.push(item[i])
-              }
-              console.log(this.carousel.length, this.counter)
-              },3000)
-        
-      }
+      
     }
 }
 </script>
+<style>
+/* .animate-item{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  height: 440px;
+  width: 100vw !important;
+} */
+</style>
