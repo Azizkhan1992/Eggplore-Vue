@@ -2,7 +2,7 @@
     <div class="eggplore-seven-container">
         <h5>Owl Carousel</h5>
         <div class="eggplore-seven-content">
-            <carousel>
+            <carousel @next="next" @prev="prev">
                 <carousel-slide v-for="(slide, idx) in slides" :key="slide" :index="idx" :visibleSlide="visibleSlide" :direction="direction">
                     <img :src="require('@/assets/Content-six/' + slide)"/>
                 </carousel-slide>

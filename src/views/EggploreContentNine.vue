@@ -1,17 +1,18 @@
 <template>
-  <div class="owl-carousel-wrapper">
-    
-    <div class="carousel-item" v-for="(slide, idx) in carousel" :key="idx"
-    :class="idx == 0 ? 'fisrt-hidden' : '' || idx >= 6 ? 'second-hidden' : ''"
-    @click="play()"
-    >
-
-      <img class="multi-active" :src="require('@/assets/Content-nine/' + slide.img)" alt="">
-      <h3 class="multi-active">{{slide.name}}</h3>
-      <p class="multi-active">{{slide.title}}</p>
-      <button class="multi-active">{{slide.button}}</button>
+    <div class="carousel-slider-container" :style="container_style">
+      <div class="carousel-slider-content">
+        <div class="owl-carousel-wrapper" :style="[wrapper_style, transformStep]">
+          <div class="carousel-item" v-for="(slide, idx) in carousel" :key="idx"
+          :style="item_style"
+          >
+            <img :src="require('@/assets/Content-nine/' + slide.img)" alt="">
+            <h3>{{slide.name}}</h3>
+            <p>{{slide.title}}</p>
+            <button>{{slide.button}}</button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 </template>
 <script>
 
@@ -20,6 +21,7 @@ export default {
     name: 'carousel-slider',
     data(){
         return{
+            hidden: false,
             counter: 0,
             item_width: 150,
             margin_right: 15,
@@ -114,11 +116,34 @@ export default {
     methods:{
       play(){
         setInterval(() =>{
-            let item = this.owl_carousel.shift()
-            this.owl_carousel.push(item)
+          if(this.counter>= this.carousel.length-1){
+            this.counter = 0
+          }else{
+            this.counter++
+            // let item = this.carousel.splice(0,1)
+            //   for(let i =0; i<item.length; i++){
+            //   this.carousel.push(item[i])
+            //   }
+
+            // let item = this.carousel.shift()
+            // this.carousel.push(item)
+            
+              
+          }
         }, 2000)
       },
-      
+      carousel_push(){
+        //TODO
+              // let item = this.carousel.shift()
+              setInterval(()=>{
+                let item = this.carousel.splice(0,1)
+              for(let i =0; i<item.length; i++){
+              this.carousel.push(item[i])
+              }
+              console.log(this.carousel.length, this.counter)
+              },3000)
+        
+      }
     }
 }
 </script>
