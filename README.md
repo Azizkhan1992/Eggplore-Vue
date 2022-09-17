@@ -22,3 +22,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+<p><img align="right" alt="gif" src="https://github.com/Azizkhan1992/Eggplore-Vue/blob/main/Eggplore.gif" width="400" height="300"/></p>
