@@ -2720,13 +2720,13 @@ body {
 /* Eggplore Carousel Slider */
 
 .carousel-slider-container{
-  margin-top: 100px;
+  margin-top: 240px;
   margin-left: 160px;
-  height: 320px;
+  /* height: 320px; */
 
     position: relative;
     width: 1095px;
-    height: 480px;
+    height: 780px;
     overflow: hidden;
 
 }
@@ -2740,22 +2740,54 @@ body {
   } */
 
 .carousel-slider-container .carousel-slider-content .owl-carousel-wrapper{
+  width: 100%;
+  height: 100%;
   position: relative;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   gap: 20px;
-  height: 440px;
 }
 
 .carousel-slider-container .carousel-slider-content{
+  width: 100%;
+  height: 100%;
   position: relative;
   overflow: hidden;
   -webkit-transform: translate3d(0,0,0);
 }
 .carousel-slider-container .carousel-slider-content .owl-carousel-wrapper .carousel-item{
+  width: calc(25% - 12px);
   float: left;
   -webkit-backface-visibility: hidden;
   -webkit-transform: translate3d(0,0,0);
   position: relative;
   -webkit-tap-highlight-color: transparent;
+  transform: scale(1);
+  transition: 0.64s linear;
+}
+
+.carousel-slider-container .carousel-slider-content .owl-carousel-wrapper .center{
+  /* height: 100%; */
+  transform: scale(1.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-slider-container .carousel-slider-content .owl-carousel-wrapper .center img{
+  width: 100%;
+  height: calc(75% - 24px);
+  object-fit: contain;
+}
+
+.carousel-slider-container .carousel-slider-content .owl-carousel-wrapper .hiddenL{
+  margin-left: -320px;
+  transform: scale(1);
+}
+
+.carousel-slider-container .carousel-slider-content .owl-carousel-wrapper .hiddenR{
+  margin-right: -320px;
+  transform: scale(1);
 }
